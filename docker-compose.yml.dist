@@ -56,12 +56,13 @@ services:
         image: composer
         volumes:
             - .:/app
-#        command: composer create-project laravel/laravel . --ignore-platform-reqs
 #        command: composer require laravel/sail --dev
 #        command: composer require laravel/breeze --dev
-#        command: composer install --ignore-platform-reqs
+#        command: composer require --dev laravel/dusk
+#        command: composer require laravel/tinker --dev
 #        command: composer update --ignore-platform-reqs
-        command: composer require --dev laravel/dusk
+        command: composer install --ignore-platform-reqs
+
 networks:
     sail:
         driver: bridge
