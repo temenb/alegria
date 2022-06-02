@@ -19,4 +19,6 @@ Route::middleware('auth')->group(function() {
     })->name('dashboard');
 });
 
+//Route::get('/profile/{}')
+
 require __DIR__.'/auth.php';
