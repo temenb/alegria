@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('entrepreneurs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('slug')->unique();
             $table->timestamps();
             $table->softDeletes();
+            $table->string('layout');
 
             $table->foreign('user_id')->references('id')->on('users');
         });

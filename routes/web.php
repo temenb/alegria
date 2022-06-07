@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/entrepreneurs');
+
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
 
-//Route::get('/profile/{}')
+Route::name('entrepreneurs.')->prefix('entrepreneurs')->group(function() {
+    Route::get('/', [\App\Http\Controllers\EntrepreneurController::class, 'index'])
+        ->name('index');
+    Route::get('/{entrepreneur}', [\App\Http\Controllers\EntrepreneurController::class, 'show'])
+        ->name('show');
+});
 
 require __DIR__.'/auth.php';
