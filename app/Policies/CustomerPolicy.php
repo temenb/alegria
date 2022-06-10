@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Entrepreneur;
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class EntrepreneurPolicy
+class CustomerPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class EntrepreneurPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Entrepreneur  $entrepreneur
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Entrepreneur $entrepreneur)
+    public function view(User $user, Customer $customer)
     {
         //
     }
@@ -48,10 +48,10 @@ class EntrepreneurPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Entrepreneur  $entrepreneur
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Entrepreneur $entrepreneur)
+    public function update(User $user, Customer $customer)
     {
         //
     }
@@ -60,10 +60,10 @@ class EntrepreneurPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Entrepreneur  $entrepreneur
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Entrepreneur $entrepreneur)
+    public function delete(User $user, Customer $customer)
     {
         //
     }
@@ -72,10 +72,10 @@ class EntrepreneurPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Entrepreneur  $entrepreneur
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Entrepreneur $entrepreneur)
+    public function restore(User $user, Customer $customer)
     {
         //
     }
@@ -84,10 +84,10 @@ class EntrepreneurPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Entrepreneur  $entrepreneur
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Entrepreneur $entrepreneur)
+    public function forceDelete(User $user, Customer $customer)
     {
         //
     }

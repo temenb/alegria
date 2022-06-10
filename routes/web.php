@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/entrepreneurs');
+Route::redirect('/', '/customers');
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', function () {
@@ -21,10 +21,10 @@ Route::middleware('auth')->group(function() {
     })->name('dashboard');
 });
 
-Route::name('entrepreneurs.')->prefix('entrepreneurs')->group(function() {
-    Route::get('/', [\App\Http\Controllers\EntrepreneurController::class, 'index'])
+Route::name('customers.')->prefix('customers')->group(function() {
+    Route::get('/', [\App\Http\Controllers\Customer\IndexController::class, 'index'])
         ->name('index');
-    Route::get('/{entrepreneur}', [\App\Http\Controllers\EntrepreneurController::class, 'show'])
+    Route::get('/{customer}', [\App\Http\Controllers\Customer\IndexController::class, 'show'])
         ->name('show');
 });
 
