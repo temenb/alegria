@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Customer;
+namespace App\Http\Controllers\Business;
 
-use App\Models\Customer;
+use App\Models\Business;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
@@ -17,17 +17,17 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $customers = Customer::with('user')->paginate(self::CUSTOMERS_PER_PAGE);
+        $businesses = Business::with('user')->paginate(self::CUSTOMERS_PER_PAGE);
 
-        return view('customer.index', ['customers' => $customers]);
+        return view('business.index', ['businesses' => $businesses]);
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Business $business)
     {
-        return view('customer.show', ['customer' => $customer]);
+        return view('business.show', ['business' => $business]);
     }
 }
