@@ -4,27 +4,33 @@ namespace App\Http\Controllers\Business;
 
 use App\Models\Business;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
-    CONST CUSTOMERS_PER_PAGE = 10;
+    CONST BUSINESSES_PER_PAGE = 10;
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function create()
+    {
+        return view('business.create2');
+        return view('business.create');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $businesses = Business::with('user')->paginate(self::CUSTOMERS_PER_PAGE);
+        $businesses = Business::with('user')->paginate(self::BUSINESSES_PER_PAGE);
 
         return view('business.index', ['businesses' => $businesses]);
     }
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Business $business
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Business $business)
     {

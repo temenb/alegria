@@ -22,10 +22,18 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::name('businesses.')->prefix('businesses')->group(function() {
+    Route::get('/create', [\App\Http\Controllers\Business\IndexController::class, 'create'])
+        ->name('create');
     Route::get('/', [\App\Http\Controllers\Business\IndexController::class, 'index'])
         ->name('index');
-    Route::get('/{business}', [\App\Http\Controllers\Business\IndexController::class, 'show'])
-        ->name('show');
 });
+
+Route::name('services.')->prefix('services')->group(function() {
+    Route::get('/autocompleteSearch', [\App\Http\Controllers\Services\IndexController::class, 'autocompleteSearch'])
+        ->name('autocompleteSearch');
+});
+
+Route::get('/{business}', [\App\Http\Controllers\Business\IndexController::class, 'show'])
+    ->name('businesses.show');
 
 require __DIR__.'/auth.php';
