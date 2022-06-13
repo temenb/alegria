@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Business;
 
+use App\Http\Requests\Business\StoreRequest;
 use App\Models\Business;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -15,6 +17,19 @@ class IndexController extends Controller
     public function create()
     {
         return view('business.create');
+    }
+
+    /**
+     * @param StoreRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function store(StoreRequest $request)
+    {
+        $business = new Business($request->all());
+        $business->user()->associate(Auth::user());
+        $business->save();
+
+        return redirect()->route('businesses.index');
     }
 
     /**
