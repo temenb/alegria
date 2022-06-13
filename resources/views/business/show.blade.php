@@ -12,16 +12,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($customers as $customer)
                 <tr>
-                    <td> {{ $customer->id }} </td>
-                    <td> {{ $customer->user->email }} </td>
-                    <td> {{ $customer->layout }} </td>
-                    <td> <a href="{{ route('customers.show', ['customer' => $customer->slug]) }}" /a>link</a> </td>
+                    <td> {{ $business->id }} </td>
+                    <td> {{ $business->user->email }} </td>
+                    <td> {{ $business->layout }} </td>
+                    <td> <a href="{{ route('businesses.show', ['business' => $business->slug]) }}" /a>link</a> </td>
                 </tr>
-            @endforeach
             </tbody>
-            {{ $customers->links() }}
         </table>
     </x-auth-card>
 </x-guest-layout>

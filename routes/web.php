@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/customers');
+Route::redirect('/', '/businesses');
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', function () {
@@ -21,11 +21,19 @@ Route::middleware('auth')->group(function() {
     })->name('dashboard');
 });
 
-Route::name('customers.')->prefix('customers')->group(function() {
-    Route::get('/', [\App\Http\Controllers\Customer\IndexController::class, 'index'])
+Route::name('businesses.')->prefix('businesses')->group(function() {
+    Route::get('/create', [\App\Http\Controllers\Business\IndexController::class, 'create'])
+        ->name('create');
+    Route::get('/', [\App\Http\Controllers\Business\IndexController::class, 'index'])
         ->name('index');
-    Route::get('/{customer}', [\App\Http\Controllers\Customer\IndexController::class, 'show'])
-        ->name('show');
 });
+
+Route::name('services.')->prefix('services')->group(function() {
+    Route::get('/autocompleteSearch', [\App\Http\Controllers\Services\IndexController::class, 'autocompleteSearch'])
+        ->name('autocompleteSearch');
+});
+
+Route::get('/{business}', [\App\Http\Controllers\Business\IndexController::class, 'show'])
+    ->name('businesses.show');
 
 require __DIR__.'/auth.php';

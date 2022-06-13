@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,4 +43,7 @@ class User extends Authenticatable
         'updated_at' => 'datetime',
     ];
 
+    public function business() {
+        return $this->hasMany(Business::class);
+    }
 }

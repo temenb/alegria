@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;;
 
-class CustomerSeeder extends Seeder
+class ServiceSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -15,7 +15,6 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Customer::factory(10)->create();
-
+        \App\Models\Service::factory(10)->create();
     }
 }

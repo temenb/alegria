@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Customer>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Business>
  */
-class CustomerFactory extends Factory
+class BusinessFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,7 @@ class CustomerFactory extends Factory
      */
     public function definition()
     {
-        $user = \App\Models\User::factory()->create();
         return [
-            'user_id' => $user->id,
             'slug' => Str::random(64),
             'layout' => 'layout',
         ];

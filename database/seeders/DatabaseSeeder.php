@@ -15,10 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserSeeder::class(),
+            UserSeeder::class,
+            ServiceSeeder::class,
+            BusinessSeeder::class,
         ]);
-         \App\Models\Customer::factory(10)->create();
-
-
     }
 }

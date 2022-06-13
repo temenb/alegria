@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Business extends Model
 {
 
     use HasFactory;
@@ -34,6 +33,11 @@ class Customer extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class)->withTimestamps();
     }
 
     public function user()
