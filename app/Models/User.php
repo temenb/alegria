@@ -43,4 +43,7 @@ class User extends Authenticatable
         'updated_at' => 'datetime',
     ];
 
+    public function business() {
+        return $this->hasMany(Business::class);
+    }
 }

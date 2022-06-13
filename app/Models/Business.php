@@ -35,6 +35,11 @@ class Business extends Model
         return 'slug';
     }
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class)->withTimestamps();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

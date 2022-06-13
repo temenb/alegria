@@ -17,8 +17,7 @@ class IndexController extends Controller
     public function autocompleteSearch(Request $request)
     {
         $query = $request->get('query');
-//        $filterResult = Service::where('name', 'LIKE', '%'. $query. '%')->get();
-        $filterResult = User::where('name', 'LIKE', '%'. $query. '%')->get();
+        $filterResult = Service::where('name', 'ILIKE', '%'. $query. '%')->get();
         return response()->json($filterResult);
     }
 

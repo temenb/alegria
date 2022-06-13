@@ -14,7 +14,6 @@ class IndexController extends Controller
      */
     public function create()
     {
-        return view('business.create2');
         return view('business.create');
     }
 

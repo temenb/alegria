@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Business>
  */
-class BusinessFactory extends Factory
+class ServiceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,7 @@ class BusinessFactory extends Factory
     public function definition()
     {
         return [
-            'slug' => Str::random(64),
-            'layout' => 'layout',
+            'name' => Str::random(5),
         ];
     }
 }
