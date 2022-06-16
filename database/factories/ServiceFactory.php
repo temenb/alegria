@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Currency;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Business>
@@ -19,6 +21,8 @@ class ServiceFactory extends Factory
     {
         return [
             'name' => Str::random(5),
+            'price' => mt_rand(0, 100000),
+            'currency_id' => Currency::inRandomOrder()->first()->id,
         ];
     }
 }
