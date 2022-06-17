@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->integer('service_id')->index()->unsigned();
             $table->integer('business_id')->index()->unsigned();
+            $table->integer('price');
+            $table->integer('currency_id')->index()->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

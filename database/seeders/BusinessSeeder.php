@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Business;
+use App\Models\Currency;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +17,15 @@ class BusinessSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)
-            ->has(
+        User::doesNtHave('businesses')->inRandomOrder()->limit(10)
+            ->each(function($user) {
                 Business::factory(1)
-                    ->hasServices(mt_rand(1,3))
-            )
-            ->create();
+                    ->hasAttached(
+                        Service::inRandomOrder()->first(),
+                        ['price' => mt_rand(0, 100000), 'currency_id' => Currency::inRandomOrder()->first()->id,]
+                    )
+                    ->for($user)
+                    ->create();
+        });
     }
 }

@@ -21,8 +21,6 @@ class ServiceFactory extends Factory
     {
         return [
             'name' => Str::random(5),
-            'price' => mt_rand(0, 100000),
-            'currency_id' => Currency::inRandomOrder()->first()->id,
         ];
     }
 }
