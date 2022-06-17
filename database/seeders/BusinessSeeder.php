@@ -15,6 +15,11 @@ class BusinessSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->has(Business::factory(1)->hasServices(mt_rand(1,3)))->create();
+        User::factory(10)
+            ->has(
+                Business::factory(1)
+                    ->hasServices(mt_rand(1,3))
+            )
+            ->create();
     }
 }
