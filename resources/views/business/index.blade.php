@@ -23,8 +23,8 @@
             {{ $businesses->links() }}
         </table>
 
-{{--        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('businesses.create') }}">--}}
-{{--            {{ __('Register business') }}--}}
-{{--        </a>--}}
+        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('businesses.create') }}">
+            {{ __('Register business') }}
+        </a>
     </x-auth-card>
 </x-guest-layout>

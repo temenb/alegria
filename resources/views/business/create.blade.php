@@ -2,16 +2,29 @@
     <x-auth-card>
         <x-slot name="logo"></x-slot>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST">
             @csrf
 
             <div>
                 <x-label for="name" :value="__('Name')" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus />
             </div>
             <div>
                 <x-label for="slug" :value="__('Url')" />
-                <x-input id="slug" class="block mt-1 w-full" type="text" name="name" :value="old('slug')" required autofocus />
+                <x-input id="slug" class="block mt-1 w-full" type="text" name="slug" :value="old('slug')" />
+            </div>
+            <div>
+                <x-label for="layout" :value="__('Layout')" />
+                <select id="layout" name="layout" class="block mt-1 w-full" >
+                    <option value="layout">
+                        layout
+                    </option>
+{{--                    @foreach ($product->versions as $version)--}}
+{{--                        <option value="{{ $version }}" @selected(old('version') == $version)>--}}
+{{--                            {{ $version }}--}}
+{{--                        </option>--}}
+{{--                    @endforeach--}}
+                </select>
             </div>
 
             <div class="container mt-5">
