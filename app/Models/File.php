@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class File extends Model
 {
 
     use HasFactory;
@@ -16,7 +16,8 @@ class Image extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'filename',
+        'avatar',
     ];
 
     /**
@@ -27,6 +28,11 @@ class Image extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
+    public function fileable()
+    {
+        return $this->morphTo();
+    }
 }

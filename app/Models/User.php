@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function businesses() {
         return $this->hasMany(Business::class);
     }
+
+    public function avatar() {
+        return $this->morphOne(File::class, 'fileable')->where('avatar', 1);
+    }
 }

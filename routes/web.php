@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 require __DIR__.'/businesses.php';
+require __DIR__.'/files.php';
 
 Route::redirect('/', '/businesses');
 

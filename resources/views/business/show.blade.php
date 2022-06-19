@@ -1,7 +1,12 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo"></x-slot>
-
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <form method="post" action="{{ route('businesses.uploadFile', ['business' => $business])  }}" enctype="multipart/form-data" />
+            @csrf
+            <input type="file" name="files[]" accept="image/*" multiple />
+            <x-button class="ml-3">{{ __('Upload') }}</x-button>
+        </form>
         <table>
             <thead>
             <tr>

@@ -4,7 +4,7 @@ namespace App\Http\Requests\File;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BusinessRequest extends FormRequest
+class UserAvatarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class BusinessRequest extends FormRequest
     public function rules()
     {
         return [
-            'files.*' => ['image', 'required'],
+            'avatar' => ['image', 'required'],
         ];
     }
 }
