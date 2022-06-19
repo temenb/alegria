@@ -19,6 +19,7 @@ class BusinessFactory extends Factory
     {
         return [
             'slug' => Str::random(64),
+            'name' => Str::random(5),
             'layout' => 'layout',
         ];
     }

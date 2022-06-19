@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\BusinessService;
 
 return new class extends Migration
 {
@@ -17,8 +18,12 @@ return new class extends Migration
             $table->id();
             $table->integer('service_id')->index()->unsigned();
             $table->integer('business_id')->index()->unsigned();
-            $table->integer('price');
-            $table->integer('currency_id')->index()->unsigned();
+            $table->enum(
+                'aprox_price',
+                [BusinessService::APROX_PRICE_LOW, BusinessService::APROX_PRICE_NORMAL, BusinessService::APROX_PRICE_HIGH,]
+            )->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('currency_id')->index()->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
