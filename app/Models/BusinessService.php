@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class BusinessService extends Model
 {
+    const APROX_PRICE_LOW = 'low';
+    const APROX_PRICE_NORMAL = 'normal';
+    const APROX_PRICE_HIGH = 'high';
+    const APROX_PRICES = [
+        self::APROX_PRICE_LOW,
+        self::APROX_PRICE_NORMAL,
+        self::APROX_PRICE_HIGH,
+    ];
 
     use HasFactory;
 
