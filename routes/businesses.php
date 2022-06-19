@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Business\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/businesses');
 
 Route::name('businesses.')->prefix('businesses')->group(function() {
-    Route::get('/', [\App\Http\Controllers\Business\IndexController::class, 'index'])
+    Route::get('/', [IndexController::class, 'index'])
         ->name('index');
+    Route::get('/search', [IndexController::class, 'search'])
+        ->name('search');
 });
 
 Route::name('services.')->prefix('services')->group(function() {
@@ -27,9 +30,9 @@ Route::name('services.')->prefix('services')->group(function() {
 
 Route::middleware('auth')->group(function() {
     Route::name('businesses.')->prefix('businesses')->group(function() {
-        Route::get('/create', [\App\Http\Controllers\Business\IndexController::class, 'create'])
+        Route::get('/create', [IndexController::class, 'create'])
             ->name('create');
-        Route::post('/create', [\App\Http\Controllers\Business\IndexController::class, 'store'])
+        Route::post('/create', [IndexController::class, 'store'])
             ->name('store');
     });
 });

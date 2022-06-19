@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Business;
 
+use App\Http\Requests\Business\SearchRequest;
 use App\Http\Requests\Business\StoreRequest;
 use App\Models\Business;
 use App\Http\Controllers\Controller;
@@ -38,6 +39,25 @@ class IndexController extends Controller
     public function index()
     {
         $businesses = Business::with('user')->paginate(self::BUSINESSES_PER_PAGE);
+
+        return view('business.index', ['businesses' => $businesses]);
+    }
+
+    /**
+     * @param SearchRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function search(SearchRequest $request)
+    {
+            $businesses = Business::with('user')
+            ///@todo update with search engine
+            ->where(
+                'businesses.name',
+                'ilike',
+                '%'
+                    . str_replace(array('\\', '_', '%'), array('\\\\', '\\_', '\\%'), $request->input('q'))
+                    . '%'
+            )->paginate(self::BUSINESSES_PER_PAGE);
 
         return view('business.index', ['businesses' => $businesses]);
     }
