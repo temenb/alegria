@@ -25,7 +25,6 @@ return new class extends Migration
             $table->integer('price')->nullable();
             $table->integer('currency_id')->index()->unsigned()->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

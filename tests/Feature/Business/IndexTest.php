@@ -7,6 +7,8 @@ use App\Models\BusinessService;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class IndexTest extends TestCase
@@ -55,5 +57,24 @@ class IndexTest extends TestCase
         $url = route('businesses.show', ['business' => $business], false);
         $response = $this->get($url);
         $response->assertSee($business->name);
+    }
+
+
+    public function test_avatars_can_be_uploaded()
+    {
+        $business = $this->createBusiness();
+
+        Storage::fake('avatars');
+
+        $file = UploadedFile::fake()->image('picture.jpg');
+
+        $response = $this->post(route('business.uploadFile'), [
+            'business' => $business,
+            'file' => $file,
+        ]);
+
+        Storage::disk('avatars')->assertExists($file->hashName());
+        $this->assertTrue($business->image()->where('name', $file->name)->exists());
+
     }
 }

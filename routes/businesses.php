@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Business\IndexController;
+use App\Http\Controllers\File\IndexController as FileIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,7 @@ Route::middleware('auth')->group(function() {
             ->name('create');
         Route::post('/create', [IndexController::class, 'store'])
             ->name('store');
+        Route::post('/{business}/uploadFile', [FileIndexController::class, 'business'])
+            ->name('uploadFile');
     });
 });
