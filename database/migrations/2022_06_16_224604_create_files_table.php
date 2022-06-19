@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('business_image', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->integer('image_id')->index()->unsigned();
-            $table->integer('business_id')->index()->unsigned();
+            $table->string('filename');
+            $table->integer('fileable_id');
+            $table->string('fileable_type');
+            $table->boolean('avatar')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business_image');
+        Schema::dropIfExists('files');
     }
 };
