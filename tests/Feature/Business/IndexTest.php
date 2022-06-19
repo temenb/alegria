@@ -1,13 +1,11 @@
 <?php
 
-namespace Tests\Feature\Auth;
+namespace Tests\Feature\Business;
 
 use App\Models\Business;
 use App\Models\BusinessService;
-use App\Models\Currency;
 use App\Models\Service;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
