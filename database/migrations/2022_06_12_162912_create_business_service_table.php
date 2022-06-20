@@ -24,6 +24,8 @@ return new class extends Migration
             )->nullable();
             $table->integer('price')->nullable();
             $table->integer('currency_id')->index()->unsigned()->nullable();
+            $table->json('phones')->nullable();
+            $table->json('social_networks')->nullable();
             $table->timestamps();
         });
     }

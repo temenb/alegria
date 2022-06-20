@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Interface\IFileable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Business extends Model
+class Business extends Model implements IFileable
 {
 
     use HasFactory;
@@ -47,7 +48,13 @@ class Business extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function files() {
+    public function files()
+    {
         return $this->morphMany(File::class, 'fileable');
+    }
+
+    public function owner()
+    {
+        return $this->user;
     }
 }
