@@ -17,6 +17,7 @@
                         <thead>
                         <tr>
                             <th> id </th>
+                            <th> picture </th>
                             <th> user </th>
                             <th> name </th>
                             <th> layout </th>
@@ -26,6 +27,7 @@
                         @foreach($businesses as $business)
                             <tr>
                                 <td> <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('businesses.show', ['business' => $business->slug]) }}" /a>#{{ $business->id }}</a> </td>
+                                <td> @if ($business->files->count()) <img width="64px" height="64px" src="{{ url('storage/' . $business->files->first()->filename) }}" /> @endif </td>
                                 <td> {{ $business->user->email }} </td>
                                 <td> {{ $business->name }} </td>
                                 <td> {{ $business->layout }} </td>

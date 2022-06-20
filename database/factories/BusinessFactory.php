@@ -17,10 +17,11 @@ class BusinessFactory extends Factory
      */
     public function definition()
     {
+        $themes = ['alegria', 'default'];
         return [
             'slug' => Str::random(64),
             'name' => Str::random(5),
-            'layout' => 'layout',
+            'layout' => $themes[array_rand($themes)],
         ];
     }
 }

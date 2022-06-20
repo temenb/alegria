@@ -3,6 +3,9 @@
 namespace App\Http\Requests\File;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
+
+use App\Models\Business;
 
 class BusinessRequest extends FormRequest
 {
@@ -11,9 +14,9 @@ class BusinessRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(Business $business)
     {
-        return true;
+        return Gate::allows('update', $this->business);
     }
 
     /**

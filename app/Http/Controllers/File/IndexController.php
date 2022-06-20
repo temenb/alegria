@@ -11,11 +11,16 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
+    const PUBLIC_PATH = 'public/';
+    const BUSINESS_PATH = 'images/business';
+    const USER_PATH = 'images/user';
+
     public function business(Business $business, BusinessRequest $request)
     {
         foreach ($request->file('files') as $file) {
-            $filename = $file->store('business/images');
-            $mFile = new File(['filename' => $filename]);
+            $filename = $file->store(self::PUBLIC_PATH . self::BUSINESS_PATH);
+            $fileUrl = substr($filename, mb_strlen(self::PUBLIC_PATH));
+            $mFile = new File(['filename' => $fileUrl]);
             $mFile->fileable()->associate($business);
             $mFile->save();
         }
@@ -26,8 +31,9 @@ class IndexController extends Controller
     public function userAvatar(User $user, UserAvatarRequest $request)
     {
         $file = $request->file('avatar');
-        $filename = $file->store('business/images');
-        $mFile = new File(['filename' => $filename, 'avatar' => true]);
+        $filename = $file->store(self::PUBLIC_PATH . DIRECTORY_SEPARATOR . self::USER_PATH);
+        $fileUrl = substr($filename, mb_strlen(self::PUBLIC_PATH));
+        $mFile = new File(['filename' => $fileUrl, 'avatar' => true]);
         $mFile->fileable()->associate($user);
         $mFile->save();
 
