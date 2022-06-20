@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Interface;
+namespace App\Models\Interfaces;
 
 Interface IFileable extends IOwner
 {

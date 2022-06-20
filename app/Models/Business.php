@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Interface\IFileable;
+use App\Models\Interfaces\IFileable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

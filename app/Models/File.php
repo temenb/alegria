@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Interface\IOwner;
+use App\Models\Interfaces\IOwner;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
