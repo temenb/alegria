@@ -68,6 +68,6 @@ class IndexController extends Controller
      */
     public function show(Business $business)
     {
-        return view('business.show', ['business' => $business]);
+        return view('business.theme.' . $business->layout, ['business' => $business]);
     }
 }

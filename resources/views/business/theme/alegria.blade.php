@@ -3,10 +3,11 @@
         <x-slot name="logo"></x-slot>
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <form method="post" action="{{ route('files.uploadFile', ['business' => $business])  }}" enctype="multipart/form-data" />
-            @csrf
-            <input type="file" name="files[]" accept="image/*" multiple />
-            <x-button class="ml-3">{{ __('Upload') }}</x-button>
+        @csrf
+        <input type="file" name="files[]" accept="image/*" multiple />
+        <x-button class="ml-3">{{ __('Upload') }}</x-button>
         </form>
+        alegria
         <table>
             <thead>
             <tr>
@@ -18,13 +19,13 @@
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> {{ $business->id }} </td>
-                    <td> {{ $business->name }} </td>
-                    <td> {{ $business->user->email }} </td>
-                    <td> {{ $business->layout }} </td>
-                    <td> <a href="{{ route('businesses.show', ['business' => $business->slug]) }}" /a>link</a> </td>
-                </tr>
+            <tr>
+                <td> {{ $business->id }} </td>
+                <td> {{ $business->name }} </td>
+                <td> {{ $business->user->email }} </td>
+                <td> {{ $business->layout }} </td>
+                <td> <a href="{{ route('businesses.show', ['business' => $business->slug]) }}" /a>link</a> </td>
+            </tr>
             </tbody>
         </table>
     </x-auth-card>

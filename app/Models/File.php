@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Interfaces\IOwner;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class File extends Model
+class File extends Model implements IOwner
 {
 
     use HasFactory;
@@ -34,5 +35,10 @@ class File extends Model
     public function fileable()
     {
         return $this->morphTo();
+    }
+
+    public function owner()
+    {
+        return $this->fileable()->owner();
     }
 }

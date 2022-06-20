@@ -54,7 +54,7 @@ class BusinessPolicy
      */
     public function update(User $user, Business $business)
     {
-        //
+        return $business->owner()->getKey() == $user->getKey();
     }
 
     /**
@@ -66,7 +66,7 @@ class BusinessPolicy
      */
     public function delete(User $user, Business $business)
     {
-        //
+        return $business->owner()->getKey() == $user->getKey();
     }
 
     /**
@@ -78,7 +78,7 @@ class BusinessPolicy
      */
     public function restore(User $user, Business $business)
     {
-        //
+        return false;
     }
 
     /**
@@ -90,6 +90,6 @@ class BusinessPolicy
      */
     public function forceDelete(User $user, Business $business)
     {
-        //
+        return false;
     }
 }
