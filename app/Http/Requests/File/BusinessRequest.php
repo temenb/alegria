@@ -14,7 +14,7 @@ class BusinessRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize(Business $business)
+    public function authorize()
     {
         return Gate::allows('update', $this->business);
     }
