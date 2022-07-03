@@ -8,6 +8,8 @@
         <x-button class="ml-3">{{ __('Upload') }}</x-button>
         </form>
         default
+        <x-button class="ml-3 calendar">{{ __('Calendar') }}</x-button>{{-- ///@todo update according to the rules --}}
+
         <table>
             <thead>
             <tr>

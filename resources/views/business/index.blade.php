@@ -13,6 +13,8 @@
                     @csrf
                         <input name="q" placeholder="{{ __('Search')  }}">
                     </form>
+{{--                    @include('filament.resources.meeting-resource.widgets.calendar-widget')--}}
+{{--                    <x-filament::widget />--}}
                     <table>
                         <thead>
                         <tr>
