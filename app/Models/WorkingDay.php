@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WorkingDay extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     const DAY_SUNDAY = 'sunday';
     const DAY_MONDAY = 'monday';
@@ -32,9 +33,6 @@ class WorkingDay extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
     ];
 
     /**

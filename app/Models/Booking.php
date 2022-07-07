@@ -16,9 +16,6 @@ class Booking extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
     ];
 
     /**
