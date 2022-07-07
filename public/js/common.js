@@ -6,7 +6,6 @@ $(document).ready(
         console.log('click')
         const $popup = $('#popup1');
         $popup.popup('show');
-        // setTimeout(() => $popup.popup('hide'), 1000);
     })
 );
 

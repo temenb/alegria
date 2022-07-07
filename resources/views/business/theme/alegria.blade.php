@@ -16,8 +16,6 @@
                 <th> id </th>
                 <th> user </th>
                 <th> name </th>
-                <th> layout </th>
-                <th> link </th>
             </tr>
             </thead>
             <tbody>
@@ -25,8 +23,6 @@
                 <td> {{ $business->id }} </td>
                 <td> {{ $business->name }} </td>
                 <td> {{ $business->user->email }} </td>
-                <td> {{ $business->layout }} </td>
-                <td> <a href="{{ route('businesses.show', ['business' => $business->slug]) }}" /a>link</a> </td>
             </tr>
             </tbody>
         </table>

@@ -6,18 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BusinessService extends Model
+class Booking extends Model
 {
     use HasFactory, SoftDeletes;
-
-    const APROX_PRICE_LOW = 'low';
-    const APROX_PRICE_NORMAL = 'normal';
-    const APROX_PRICE_HIGH = 'high';
-    const APROX_PRICES = [
-        self::APROX_PRICE_LOW,
-        self::APROX_PRICE_NORMAL,
-        self::APROX_PRICE_HIGH,
-    ];
 
     /**
      * The attributes that are mass assignable.
@@ -25,8 +16,9 @@ class BusinessService extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'price',
-        'currency_id',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -38,5 +30,4 @@ class BusinessService extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
-
 }

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->json('phones')->nullable();
             $table->json('social_networks')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

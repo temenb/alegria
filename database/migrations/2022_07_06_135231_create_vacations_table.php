@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('vacations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->timestamps();
+            $table->bigInteger('business_id')->unsigned();
+            $table->date('exceptional_date');
             $table->softDeletes();
+            $table->timestamps();
+
+            $table->foreign('business_id')->references('id')->on('businesses');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('vacations');
     }
 };
